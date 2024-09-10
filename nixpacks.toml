@@ -1,26 +1,32 @@
 [phases.setup]
-# Ensure Python is installed first
 runtime = "python"
 commands = [
+  # Install pip if it's not present
+  "apt-get update && apt-get install -y python3-pip",
+  # Create and activate a virtual environment
   "python3 -m venv /opt/venv && . /opt/venv/bin/activate",
-  "pip install --upgrade pip",
-  "pip install -r requirements.txt",
+  # Upgrade pip
+  "/opt/venv/bin/pip install --upgrade pip",
+  # Install Python requirements in the virtual environment
+  "/opt/venv/bin/pip install -r requirements.txt",
+  # Install Node.js dependencies for React
   "npm install --prefix frontend_yearbook"
 ]
 
 [phases.build]
 commands = [
   "npm run build --prefix frontend_yearbook",
-  "python manage.py collectstatic --noinput"
+  "/opt/venv/bin/python manage.py collectstatic --noinput"
 ]
 
 [phases.start]
 commands = [
-  "python manage.py migrate",
-  "python manage.py runserver 0.0.0.0:$PORT"
+  "/opt/venv/bin/python manage.py migrate",
+  "/opt/venv/bin/python manage.py runserver 0.0.0.0:$PORT"
 ]
 
 [variables]
 NODE_VERSION = "18.x"
+
 
 
