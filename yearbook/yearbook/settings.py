@@ -32,7 +32,8 @@ SECRET_KEY = 'django-insecure-1zbh%s-87jnjg45e435b9k$@^ymh*^3_wnws6$qnz#-c9qs!!6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-app-name.up.railway.app', 'localhost']
+ALLOWED_HOSTS = ['your-app-name.onrender.com', 'localhost']
+
 
 
 REST_FRAMEWORK = {
@@ -101,19 +102,10 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if os.getenv('RAILWAY_ENVIRONMENT'):
-    # Production environment (Railway)
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-    }
-else:
-    # Local development settings
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
+
 
 
 # Password validation
