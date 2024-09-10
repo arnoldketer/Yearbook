@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from .views import index
 
 urlpatterns = [
     # List and Create Student
@@ -12,5 +13,9 @@ urlpatterns = [
     
     # Update Student (Only Author can edit)
     path("students/update/<int:pk>/", views.StudentUpdate.as_view(), name="student-update"),
+
+    path('', index),
+    path('<path:path>', index),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

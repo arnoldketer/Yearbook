@@ -5,6 +5,7 @@ from .models import Student
 from students.serializers import StudentSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
 from rest_framework.exceptions import PermissionDenied
+import os
 
 # Create your views here.
 class StudentListCreate(generics.ListCreateAPIView):
@@ -59,5 +60,6 @@ class CreateUserView(generics.CreateAPIView):
     permission_classes = [AllowAny]
 
 
-
+def index(request):
+    return render(request, os.path.join('dist', 'index.html'))
 

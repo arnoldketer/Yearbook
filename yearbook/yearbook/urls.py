@@ -13,6 +13,7 @@ urlpatterns = [
     path('students-auth/', include('rest_framework.urls')),
     path('students/', include('students.urls')),
     path('projects/', include('Projects.urls')),
+    path('', include('students.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
