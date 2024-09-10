@@ -1,7 +1,21 @@
-[phases]
-setup = "pip install -r requirements.txt && npm install --prefix frontend_yearbook"
-build = "npm run build --prefix frontend_yearbook && python manage.py collectstatic --noinput"
-start = "python manage.py runserver 0.0.0.0:$PORT"
+[phases.setup]
+commands = [
+  "pip install -r requirements.txt",
+  "npm install --prefix frontend_yearbook"
+]
+
+[phases.build]
+commands = [
+  "npm run build --prefix frontend_yearbook",
+  "python manage.py collectstatic --noinput"
+]
+
+[phases.start]
+commands = [
+  "python manage.py migrate",
+  "python manage.py runserver 0.0.0.0:$PORT"
+]
 
 [variables]
 NODE_VERSION = "18.x"
+
