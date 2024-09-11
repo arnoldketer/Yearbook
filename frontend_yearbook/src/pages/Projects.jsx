@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProjectList from '../components/ProjectList';
 import Footer from '../components/Footer';
+import gallery1 from '../assets/gallery-1.png';
 
 const Projects = () => {
   return (
@@ -10,7 +11,7 @@ const Projects = () => {
       <Navbar/>
       <Hero
         cName="hero-mid"
-        heroImg='src/assets/gallery-1.png'
+        heroImg={gallery1}
         title="Projects Portfolio"
         buttonText="Add Your Project"
         url="/projects"

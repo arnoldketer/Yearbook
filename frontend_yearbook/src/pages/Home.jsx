@@ -7,6 +7,7 @@ import Carousel from '../components/Carousel'
 import Title from '../components/Title'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import HeroImg from '../assets/hero.png'
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
    <Navbar />
     <Hero
       cName="hero"
-      heroImg="src\assets\hero.png"
+      heroImg={HeroImg}
       title="Where Every Smile Tells a Story"
       text="Turning Today’s Memories into Tomorrow’s Treasures"
       buttonText="Make your own"
