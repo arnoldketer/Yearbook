@@ -148,7 +148,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    'C:/Users/DELL/OneDrive/Desktop/Project_Yearbook/frontend_yearbook/dist/assets',
+    os.path.join(BASE_DIR, 'frontend_yearbook', 'dist', 'assets'),
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
