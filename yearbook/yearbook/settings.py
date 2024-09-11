@@ -32,7 +32,8 @@ SECRET_KEY = 'django-insecure-1zbh%s-87jnjg45e435b9k$@^ymh*^3_wnws6$qnz#-c9qs!!6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-app-name.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['yb-web.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 
@@ -103,7 +104,9 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
 }
 
 
