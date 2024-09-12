@@ -9,3 +9,13 @@ services:
       hooks:
         afterDeploy:
           - python manage.py migrate
+
+  - name: nginx-service
+    type: web
+    env: docker
+    dockerfilePath: Dockerfile.nginx
+    plan: free
+    routes:
+      - type: rewrite
+        source: /.*
+        destination: /index.html
