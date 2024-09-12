@@ -83,6 +83,7 @@
 
     .trip-card{
         flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     .t-card{
