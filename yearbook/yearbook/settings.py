@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-1zbh%s-87jnjg45e435b9k$@^ymh*^3_wnws6$qnz#-c9qs!!6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['yb-web.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['yb-web.onrender.com', 'yearbook-2o00.onrender.com', 'localhost']
 
 
 
@@ -69,6 +69,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -76,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'yearbook.urls'
